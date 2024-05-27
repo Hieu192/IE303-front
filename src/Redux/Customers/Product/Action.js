@@ -112,8 +112,8 @@ export const updateProduct = (product) => async (dispatch) => {
     dispatch({ type: UPDATE_PRODUCT_REQUEST });
 
     const { data } = await api.put(
-      `${API_BASE_URL}/api/admin/products/${product.productId}`,
-      product
+      `${API_BASE_URL}/api/admin/products/${product.productId}/update`,
+      product.productData
     );
 
     dispatch({

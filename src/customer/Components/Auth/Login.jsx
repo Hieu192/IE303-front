@@ -58,7 +58,7 @@ export default function LoginUserForm({ handleNext }) {
               required
               id="password"
               name="password"
-              label="Password"
+              label="Mật khẩu"
               fullWidth
               autoComplete="given-name"
               type="password"

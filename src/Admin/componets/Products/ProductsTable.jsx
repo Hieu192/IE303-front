@@ -20,7 +20,6 @@ import {
 } from "@mui/material";
 
 import React from "react";
-import { dressPage1 } from "../../../Data/dress/page1";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -59,7 +58,7 @@ const ProductsTable = () => {
       colors: [],
       sizes: [],
       minPrice: 0,
-      maxPrice: 100000,
+      maxPrice: 100000000,
       minDiscount: 0,
       sort: sort || "price_low",
       pageNumber:page || 0,
@@ -119,24 +118,7 @@ const ProductsTable = () => {
               </Select>
             </FormControl>
           </Grid>
-          <Grid item xs={4}>
-            <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-label">
-                Tồn kho
-              </InputLabel>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={filterValue.availability}
-                label="Availability"
-                onChange={(e) => handleFilterChange(e, "availability")}
-              >
-                <MenuItem value={"All"}>Tất cả</MenuItem>
-                <MenuItem value={"in_stock"}>Còn hàng</MenuItem>
-                <MenuItem value={"out_of_stock"}>Hết hàng</MenuItem>
-              </Select>
-            </FormControl>
-          </Grid>
+          
           <Grid item xs={4}>
             <FormControl fullWidth>
               <InputLabel id="demo-simple-select-label">

@@ -49,8 +49,6 @@ const jwt=localStorage.getItem("jwt")
       [name]: value,
     }));
   };
-  const [category, setCategory] = useState('');
-  const [subCategory, setSubCategory] = useState('');
 
   const getSubCategories = () => {
     if (productData.topLavelCategory === 'men') {
@@ -150,13 +148,28 @@ const jwt=localStorage.getItem("jwt")
             />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <TextField
+          <FormControl fullWidth>
+              <InputLabel>Màu</InputLabel>
+              <Select
+                name="color"
+                value={productData.color}
+                onChange={handleChange}
+                label="Màu"
+              >
+                <MenuItem value="red">Đỏ</MenuItem>
+                <MenuItem value="white">Trắng</MenuItem>
+                <MenuItem value="black">Đen</MenuItem>
+                <MenuItem value="yellow">Vàng</MenuItem>
+                <MenuItem value="blue">Xanh</MenuItem>
+              </Select>
+            </FormControl>
+            {/* <TextField
               fullWidth
               label="Màu"
               name="color"
               value={productData.color}
               onChange={handleChange}
-            />
+            /> */}
           </Grid>
           <Grid item xs={12} sm={6}>
             <TextField
@@ -223,8 +236,6 @@ const jwt=localStorage.getItem("jwt")
                 label="Second Level Category"
               >
                 <MenuItem value="clothing">Quần áo</MenuItem>
-                <MenuItem value="accessories">Accessories</MenuItem>
-                <MenuItem value="brands">Brands</MenuItem>
               </Select>
             </FormControl>
           </Grid>

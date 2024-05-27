@@ -2,13 +2,6 @@ import React, { useEffect } from "react";
 import HomeCarousel from "../customer/Components/Carousel/HomeCarousel";
 import { homeCarouselData } from "../customer/Components/Carousel/HomeCaroselData";
 import HomeProductSection from "../customer/Components/Home/HomeProductSection";
-import { sareePage1 } from "../Data/Saree/page1";
-import { dressPage1 } from "../Data/dress/page1";
-import { gounsPage1 } from "../Data/Gouns/gouns";
-import { kurtaPage1 } from "../Data/Kurta/kurta";
-import { mensShoesPage1 } from "../Data/shoes";
-import { mens_kurta } from "../Data/Men/men_kurta";
-import { lengha_page1 } from "../Data/Women/LenghaCholi";
 import ProductCard from "../customer/Components/Product/ProductCard/ProductCard";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
@@ -47,6 +40,8 @@ const Homepage = () => {
       <HomeCarousel images={homeCarouselData} />
 
       <div className="space-y-10 py-20">
+      <h1 className="text-4xl font-extrabold text-gray-900 py-5">Tất cả sản phẩm</h1>
+
       {/* <HomeProductSection data={mens_kurta} section={"Men's Kurta"} />
         <HomeProductSection data={mensShoesPage1} section={"Men's Shoes"} /> */}
         {/* {categories.map((item) => <HomeProductSection sectionName={item.sectionName} category={item.category}/>)} */}

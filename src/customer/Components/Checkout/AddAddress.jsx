@@ -27,8 +27,8 @@ export default function AddDeliveryAddressForm({ handleNext }) {
       streetAddress: data.get("address"),
       city: data.get("city"),
       state: data.get("state"),
-      zipCode: data.get("zip"),
-      mobile: data.get("phoneNumber"),
+      zipcode: data.get("zip"),
+      phone: data.get("phoneNumber"),
     };
 
     dispatch(createOrder({ address, jwt, navigate }));
@@ -45,7 +45,7 @@ export default function AddDeliveryAddressForm({ handleNext }) {
     <Grid container spacing={4}>
       <Grid item xs={12} lg={5}>
         <Box className="border rounded-md shadow-md h-[30.5rem] overflow-y-scroll ">
-          {auth.user?.addresses?.map((item) => (
+          {auth.user?.address?.map((item) => (
             <div
               onClick={() => setSelectedAdress(item)}
               className="p-5 py-7 border-b cursor-pointer"
@@ -76,7 +76,7 @@ export default function AddDeliveryAddressForm({ handleNext }) {
                   required
                   id="firstName"
                   name="firstName"
-                  label="First Name"
+                  label="Họ"
                   fullWidth
                   autoComplete="given-name"
                 />
@@ -86,7 +86,7 @@ export default function AddDeliveryAddressForm({ handleNext }) {
                   required
                   id="lastName"
                   name="lastName"
-                  label="Last Name"
+                  label="Tên"
                   fullWidth
                   autoComplete="given-name"
                 />
@@ -96,7 +96,7 @@ export default function AddDeliveryAddressForm({ handleNext }) {
                   required
                   id="address"
                   name="address"
-                  label="Address"
+                  label="Địa chỉ"
                   fullWidth
                   autoComplete="shipping address"
                   multiline
@@ -108,7 +108,7 @@ export default function AddDeliveryAddressForm({ handleNext }) {
                   required
                   id="city"
                   name="city"
-                  label="City"
+                  label="Thành phố"
                   fullWidth
                   autoComplete="shipping address-level2"
                 />
@@ -118,7 +118,7 @@ export default function AddDeliveryAddressForm({ handleNext }) {
                   required
                   id="state"
                   name="state"
-                  label="State/Province/Region"
+                  label="Quốc gia"
                   fullWidth
                 />
               </Grid>
@@ -127,7 +127,7 @@ export default function AddDeliveryAddressForm({ handleNext }) {
                   required
                   id="zip"
                   name="zip"
-                  label="Zip / Postal code"
+                  label="Mã bưu điện"
                   fullWidth
                   autoComplete="shipping postal-code"
                 />
@@ -137,7 +137,7 @@ export default function AddDeliveryAddressForm({ handleNext }) {
                   required
                   id="phoneNumber"
                   name="phoneNumber"
-                  label="Phone Number"
+                  label="Số điện thoại"
                   fullWidth
                   autoComplete="tel"
                 />

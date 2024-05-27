@@ -18,8 +18,6 @@ export const filters = [
       { value: "black", label: "Đen" },
       { value: "blue", label: "Xanh dương" },
       { value: "red", label: "Đỏ" },
-      { value: "green", label: "Xanh lá" },
-      { value: "purple", label: "Tím" },
       { value: "yellow", label: "Vàng" },
     ],
   },
@@ -31,11 +29,11 @@ export const singleFilter = [
     id: "price",
     name: "Giá",
     options: [
-      { value: "159-399", label: "0 - 100.000" },
-      { value: "399-999", label: "100.000 - 500.000" },
-      { value: "999-1999", label: "500.000 - 1000.000" },
-      { value: "1999-2999", label: "1000.000 - 5.000.000" },
-      { value: "3999-4999", label: "5000.000 - 10.000.000" },
+      { value: "0-100000", label: "0 - 100.000" },
+      { value: "100000-500000", label: "100.000 - 500.000" },
+      { value: "500000-1000000", label: "500.000 - 1000.000" },
+      { value: "1000000-5000000", label: "1000.000 - 5.000.000" },
+      { value: "5000000-10000000", label: "5000.000 - 10.000.000" },
     ],
   },
   {
@@ -49,17 +47,17 @@ export const singleFilter = [
       { value: "90", label: "90% trở lên" },
     ],
   },
-  {
-    id: "stock",
-    name: "Trạng thái sản phẩm",
-    options: [
-      { value: "in_stock", label: "Còn hàng" },
-      { value: "out_of_stock", label: "Hết hàng" },
-    ],
-  },
+  // {
+  //   id: "stock",
+  //   name: "Trạng thái sản phẩm",
+  //   options: [
+  //     { value: "in_stock", label: "Còn hàng" },
+  //     { value: "out_of_stock", label: "Hết hàng" },
+  //   ],
+  // },
 ];
 
 export const sortOptions = [
-  { name: "Price: Low to High", query: "price_low", current: false },
-  { name: "Price: High to Low", query: "price_high", current: false },
+  { name: "Giá: Thấp đến cao", query: "price_low", current: false },
+  { name: "Giá: Cao đến thấp", query: "price_high", current: false },
 ];

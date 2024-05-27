@@ -44,7 +44,7 @@ export default function Navigation() {
   const handleCloseUserMenu = (event) => {
     setAnchorEl(null);
   };
-
+  
   const handleOpen = () => {
     setOpenAuthModal(true);
   };
@@ -56,6 +56,11 @@ export default function Navigation() {
   const handleCategoryClick = (category, section, item, close) => {
     navigate(`/${category.id}/${section.id}/${item.id}`);
     close();
+  };
+
+  const handleNavigateAdmin = () => {
+    handleCloseUserMenu();
+    navigate("/admin/products");
   };
 
   useEffect(() => {
@@ -417,9 +422,15 @@ export default function Navigation() {
                           "aria-labelledby": "basic-button",
                         }}
                       >
-                        <MenuItem onClick={handleCloseUserMenu}>
+                      {auth?.user.role === "admin" ? (
+                        <MenuItem onClick={handleNavigateAdmin}>
+                          Trang quản trị
+                        </MenuItem>
+                  ): (
+                    <MenuItem onClick={handleCloseUserMenu}>
                           Thông tin
                         </MenuItem>
+                  )}
                         
                         <MenuItem onClick={handleMyOrderClick}>
                           Hóa đơn của tôi

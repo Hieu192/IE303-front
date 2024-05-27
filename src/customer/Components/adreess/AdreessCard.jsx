@@ -10,7 +10,7 @@ const AddressCard = ({address}) => {
           {address?.state}, {address?.streetAddress}, {address?.zipcode}
         </p>
         <div className="space-y-1">
-          <p className="font-semibold">Số điện thoại</p>
+          <p className="font-semibold">Số điện thoại: </p>
           <p>{address?.phone}</p>
         </div>
       </div>

@@ -35,17 +35,28 @@ const UpdateProductForm = () => {
     discountedPrice: "",
     price: "",
     discountPersent: "",
-    size: initialSizes,
+    // size: initialSizes,
     quantity: "",
-    topLavelCategory: "",
-    secondLavelCategory: "",
-    thirdLavelCategory: "",
+    // topLavelCategory: "",
+    // secondLavelCategory: "",
+    // thirdLavelCategory: "",
     description: "",
   });
+
+  
   const dispatch = useDispatch();
   const jwt = localStorage.getItem("jwt");
   const { productId } = useParams();
   const { customersProduct } = useSelector((store) => store);
+
+  const getSubCategories = () => {
+    if (productData.topLavelCategory === 'men') {
+      return [{name: 'Quần short', value: 'men_shorts'}, {name:'Quần jeans', value: 'men_jeans'}, {name:'Áo thun', value: 'men_t-shirts'}, {name:'Áo khoác', value: 'men_jacket'}, {name:'Áo len', value: 'men_sweater'},{name:'Áo sơ mi', value: 'men_shirt'}];
+    } else if (productData.topLavelCategory === 'women') {
+      return [{name: 'Váy đầm', value: 'women_dress'}, {name:'Quần jeans', value: 'women_jeans'}, {name:'Áo thun', value: 'women_t-shirts'}, {name:'Áo khoác', value: 'women_jacket'}, {name:'Áo len', value: 'women_sweater'},{name:'Áo sơ mi', value: 'women_shirt'}];
+    }
+    return [];
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -69,12 +80,13 @@ const UpdateProductForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(updateProduct());
+    dispatch(updateProduct({productData, productId}));
     console.log(productData);
   };
 
   useEffect(() => {
     dispatch(findProductById({productId}));
+    console.log("test find product update", customersProduct)
   }, [productId]);
 
   useEffect(()=>{
@@ -179,7 +191,7 @@ const UpdateProductForm = () => {
               type="number"
             />
           </Grid>
-          <Grid item xs={6} sm={4}>
+          {/* <Grid item xs={6} sm={4}>
             <FormControl fullWidth>
               <InputLabel>Loại 1</InputLabel>
               <Select
@@ -188,8 +200,8 @@ const UpdateProductForm = () => {
                 onChange={handleChange}
                 label="Top Level Category"
               >
-                <MenuItem value="men">Nữ</MenuItem>
-                <MenuItem value="women">Nam</MenuItem>
+                <MenuItem value="men">Nam</MenuItem>
+                <MenuItem value="women">Nữ</MenuItem>
               </Select>
             </FormControl>
           </Grid>
@@ -216,16 +228,16 @@ const UpdateProductForm = () => {
                 value={productData.thirdLavelCategory}
                 onChange={handleChange}
                 label="Third Level Category"
+                disabled={!productData.topLavelCategory}
               >
-                <MenuItem value="jeans">Quần jeans</MenuItem>
-                <MenuItem value="women_dress">Đầm</MenuItem>
-                <MenuItem value="t-shirts">Áo thun</MenuItem>
-                <MenuItem value="sweater">Áo len</MenuItem>
-                <MenuItem value="jacket">Áo khoác</MenuItem>
-                <MenuItem value="shirt">Áo sơ mi</MenuItem>
+                {getSubCategories().map((item) => (
+              <MenuItem value={item.value}>
+                {item.name}
+              </MenuItem>
+            ))}
               </Select>
             </FormControl>
-          </Grid>
+          </Grid> */}
           <Grid item xs={12}>
             <TextField
               fullWidth
@@ -270,7 +282,7 @@ const UpdateProductForm = () => {
               size="large"
               type="submit"
             >
-              Update Product
+              Cập nhật
             </Button>
             {/* <Button
               variant="contained"
