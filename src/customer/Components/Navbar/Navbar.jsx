@@ -17,8 +17,8 @@ function Navbar() {
             {/* Logo */}
             <Link to="/" className="flex items-center py-6">
               <img
-                src="https://res.cloudinary.com/ddkso1wxi/image/upload/v1675919455/Logo/Copy_of_Zosh_Academy_nblljp.png"
-                alt="Shopwithzosh"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnaCiPjkCFkBQFdd6LrUIKaniF9sUmwWc2xih3-Abm2w&s"
+                alt="Shop"
                 className="h-8 w-8 mr-2"
               />
               <span className="font-bold text-white text-lg">
